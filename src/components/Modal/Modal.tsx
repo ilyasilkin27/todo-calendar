@@ -38,8 +38,8 @@ export const Modal: React.FC<ModalProps> = ({ day, currentDate, onClose }) => {
         <div className='modal-body'>
             <ul>
             {tasks[date]?.map((task) => (
-                <li key={task.id} style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
-                {task.text}
+                <li key={task.id}>
+                <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.text}</span>
                 <input
                     type="checkbox"
                     checked={task.completed}
@@ -55,6 +55,7 @@ export const Modal: React.FC<ModalProps> = ({ day, currentDate, onClose }) => {
             type="text"
             value={newTaskText}
             onChange={(e) => setNewTaskText(e.target.value)}
+            className='taskInput'
             />
             {showWarning && <p style={{ color: 'red' }}>Please en
             ter a non-empty task.</p>}

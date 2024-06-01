@@ -60,6 +60,36 @@ button {
     border-radius: 10px;
     color: rgb(140, 0, 255);
     margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(140, 0, 255);
+    color: white;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(140, 0, 255, 0.5);
+}
+
+.taskInput {
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.taskInput:focus {
+    border-color: rgb(140, 0, 255);
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 0, 68, 0.5);
 }
 
 .close-button:hover,
@@ -70,9 +100,12 @@ button {
 }
 
 li {
-    color: black;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-li.completed {
-    text-decoration: line-through;
+span {
+    font-size: larger;
 }
