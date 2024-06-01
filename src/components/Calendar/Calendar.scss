@@ -1,3 +1,15 @@
+@keyframes pulse-shadow {
+    0% {
+      box-shadow: 0 0 10px rgba(0, 255, 115, 0.9);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(0, 255, 115, 0.9);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(0, 255, 115, 0.9);
+    }
+}
+
 .calendar {
     display: flex;
     flex-direction: column;
@@ -5,9 +17,9 @@
     padding: 20px;
     border: 2px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: rgb(140, 0, 255);
     background-color: rgba(255, 255, 255, 0.8);
+    animation: pulse-shadow 2s infinite;
 }
 
 .days {
@@ -54,6 +66,7 @@
     text-align: center;
     cursor: pointer;
     width: calc(100% / 7);
+    transition: background-color 0.3s ease;
 }
 
 .day:hover {
