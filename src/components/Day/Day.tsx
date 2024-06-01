@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Day.scss';
-import { Modal } from '../Modal/Modal';
 import { useTaskContext } from '../../contexts/TaskContext';
 
 interface DayProps {
   day: number;
+  onDayClick: () => void;
 }
 
-export const Day: React.FC<DayProps> = ({ day }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export const Day: React.FC<DayProps> = ({ day, onDayClick }) => {
   const { tasks } = useTaskContext();
-  const date = new Date().toISOString().split('T')[0];
+  const date = new Date(new Date().getFullYear(), new Date().getMonth(), day).toISOString().split('T')[0];
 
   return (
-    <div className="day" onClick={() => setIsModalOpen(true)}>
+    <div className="day" onClick={onDayClick}>
       <span>{day}</span>
-      {tasks[date]?.length > 0 && <span>{tasks[date].length}</span>}
-      {isModalOpen && <Modal day={day} onClose={() => setIsModalOpen(false)} />}
+      {tasks[date]?.length > 0 && <span>•</span>}
     </div>
   );
 };

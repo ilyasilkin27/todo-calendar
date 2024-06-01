@@ -6,7 +6,7 @@
     border: 2px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: rgb(255, 0, 68);
+    color: rgb(140, 0, 255);
     background-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -27,7 +27,7 @@
 .month-switcher button {
     background-color: #fff;
     border: 1px solid #ccc;
-    color: rgb(255, 0, 68);
+    color: rgb(140, 0, 255);
     border-radius: 5px;
     padding: 5px 10px;
     margin: 0 10px;
@@ -36,6 +36,13 @@
 
 .month-switcher span {
     font-size: 20px;
+}
+
+.month-year {
+    font-size: 20px;
+    margin: 0 10px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .day {
