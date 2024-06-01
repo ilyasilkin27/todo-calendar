@@ -25,12 +25,12 @@ export const Modal: React.FC<ModalProps> = ({ day, onClose }) => {
         <ul>
           {tasks[date]?.map((task) => (
             <li key={task.id}>
+              {task.text}
               <input
                 type="checkbox"
                 checked={task.completed}
                 onChange={() => toggleTask(date, task.id)}
               />
-              {task.text}
               <button onClick={() => removeTask(date, task.id)}>Delete</button>
             </li>
           ))}

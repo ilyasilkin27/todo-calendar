@@ -48,3 +48,14 @@ button {
     text-decoration: none;
     cursor: pointer;
 }
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li {
+    color: black;
+    width: 25%;
+}
