@@ -49,13 +49,10 @@ button {
     cursor: pointer;
 }
 
-ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 li {
     color: black;
-    width: 25%;
+}
+
+li.completed {
+    text-decoration: line-through;
 }
