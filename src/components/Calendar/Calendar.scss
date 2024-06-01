@@ -1,5 +1,60 @@
 .calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: rgb(255, 0, 68);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
+    width: 100%;
+}
+
+.month-switcher {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.month-switcher button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.month-switcher span {
+    font-size: 20px;
+}
+
+.day {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    width: calc(100% / 7);
+}
+
+.day:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.day span {
+    font-size: 18px;
+}
+
+.day .tasks {
+    font-size: 14px;
+    color: #666;
 }
