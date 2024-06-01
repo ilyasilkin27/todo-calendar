@@ -29,16 +29,18 @@ const Calendar = () => {
   };
 
   return (
-    <div className="calendar">
-      <div className="month-switcher">
-        <button onClick={switchToPreviousMonth}>‹</button>
-        <span>{new Date(currentYear, currentMonth).toLocaleDateString('default', { month: 'long', year: 'numeric' })}</span>
-        <button onClick={switchToNextMonth}>›</button>
-      </div>
-      <div className="days">
-        {daysArray.map((day) => (
-          <Day key={day} day={day} currentDate={new Date(currentYear, currentMonth, day)} />
-        ))}
+    <div className="calendar-wrapper">
+      <div className="calendar">
+        <div className="month-switcher">
+          <button onClick={switchToPreviousMonth}>&lt;</button>
+          <span>{new Date(currentYear, currentMonth).toLocaleDateString('default', { month: 'long', year: 'numeric' }).toUpperCase()}</span>
+          <button onClick={switchToNextMonth}>&gt;</button>
+        </div>
+        <div className="days">
+          {daysArray.map((day) => (
+            <Day key={day} day={day} currentDate={new Date(currentYear, currentMonth, day)} />
+          ))}
+        </div>
       </div>
     </div>
   );

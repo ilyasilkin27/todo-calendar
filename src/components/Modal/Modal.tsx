@@ -34,9 +34,9 @@ export const Modal: React.FC<ModalProps> = ({ day, currentDate, onClose }) => {
         <button className="close-button" onClick={(e) => { e.stopPropagation(); onClose(); }}>×</button>
         <h2>Tasks for {day}</h2>
         <ul>
-          {tasks[date]?.map((task) => (
-            <li key={task.id} >
-              <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.text}</span>
+          {tasks[date]?.map((task: any) => (
+            <li key={task.id} style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+              <span>{task.text}</span>
               <input
                 type="checkbox"
                 checked={task.completed}
@@ -50,10 +50,9 @@ export const Modal: React.FC<ModalProps> = ({ day, currentDate, onClose }) => {
           type="text"
           value={newTaskText}
           onChange={(e) => setNewTaskText(e.target.value)}
-          className="taskInput"
         />
         {showWarning && <p style={{ color: 'red' }}>Please enter a non-empty task.</p>}
-        <button className="addTaskButton" onClick={handleAddTask}>Add Task</button>
+        <button onClick={handleAddTask}>Add Task</button>
       </div>
     </div>
   );
