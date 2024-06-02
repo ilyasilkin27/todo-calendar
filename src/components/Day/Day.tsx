@@ -13,23 +13,32 @@ export const Day: React.FC<DayProps> = ({ day, currentDate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHolidayDay, setIsHolidayDay] = useState(false);
   const { tasks } = useTaskContext();
-  const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), day).toISOString().split('T')[0];
-
-  useEffect(() => {
-    const checkHoliday = async () => {
-      const holiday = await isHoliday(new Date(currentDate.getFullYear(), currentDate.getMonth(), day));
-      setIsHolidayDay(holiday);
-    };
-
-    checkHoliday();
-  }, [currentDate, day]);
+  const date = currentDate.toISOString().split('T')[0];
 
   const onDayClick = () => {
     setIsModalOpen(true);
   };
 
+  useEffect(() => {
+    const checkHoliday = async () => {
+      const dateToCheck = new Date(currentDate);
+      dateToCheck.setDate(day);
+      const result = await isHoliday(dateToCheck);
+      setIsHolidayDay(result);
+    };
+
+    checkHoliday();
+  }, [day, currentDate]);
+
+  const dayClasses = ['day'];
+  if (tasks[date]?.length > 0) dayClasses.push('has-tasks');
+  if (isHolidayDay) dayClasses.push('holiday');
+
   return (
-    <div className={`day ${tasks[date]?.length > 0 ? 'has-tasks' : ''} ${isHolidayDay ? 'holiday' : ''}`} onClick={onDayClick}>
+    <div
+      className={dayClasses.join(' ')}
+      onClick={onDayClick}
+    >
       <span>{day}</span>
       {isModalOpen && <Modal day={day} currentDate={currentDate} onClose={() => setIsModalOpen(false)} />}
     </div>

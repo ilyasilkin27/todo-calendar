@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Кэширование данных о праздниках
 const holidayCache: { [key: string]: boolean[] } = {};
 
 const fetchHolidaysForMonth = async (year: number, month: number): Promise<boolean[]> => {
@@ -16,9 +15,6 @@ const fetchHolidaysForMonth = async (year: number, month: number): Promise<boole
       },
     });
 
-    console.log('API Response:', response);
-
-    // Преобразование данных в строку
     const responseData = response.data.toString();
 
     if (response.status === 200 && typeof responseData === 'string') {
