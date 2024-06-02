@@ -37,20 +37,7 @@
     background-color: rgba(140, 0, 255, 0.3);
 }
 
-@keyframes holiday-pulse {
-  0% {
-    box-shadow: 0 0 10px rgba(140, 0, 255, 0.9);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(140, 0, 255, 0.9);
-  }
-  100% {
-    box-shadow: 0 0 10px rgba(140, 0, 255, 0.9);
-  }
-}
-
 .day.holiday {
-  background-color: rgba(140, 0, 255, 0.2); /* Светло-фиолетовый фон */
-  color: rgb(140, 0, 255); /* Фиолетовый текст */
-//   animation: holiday-pulse 2s infinite;
+  background-color: rgba(140, 0, 255, 0.2);
+  color: rgb(140, 0, 255);
 }
