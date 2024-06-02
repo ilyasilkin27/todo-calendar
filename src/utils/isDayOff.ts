@@ -1,15 +1,15 @@
-import axios from 'axios';
+import { HttpClient } from './HttpClient';
 
 const holidayCache: { [key: string]: boolean[] } = {};
 
-const fetchHolidaysForMonth = async (year: number, month: number): Promise<boolean[]> => {
+const fetchHolidaysForMonth = async (client: HttpClient, year: number, month: number): Promise<boolean[]> => {
   const cacheKey = `${year}-${month}`;
   if (holidayCache[cacheKey]) {
     return holidayCache[cacheKey];
   }
 
   try {
-    const response = await axios.get(`/api/getdata?year=${year}&month=${month}`, {
+    const response = await client.get<string>(`https://isdayoff.ru/api/getdata?year=${year}&month=${month}`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -31,13 +31,11 @@ const fetchHolidaysForMonth = async (year: number, month: number): Promise<boole
   }
 };
 
-const isHoliday = async (date: Date): Promise<boolean> => {
+export const isHoliday = async (client: HttpClient, date: Date): Promise<boolean> => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
 
-  const holidays = await fetchHolidaysForMonth(year, month);
+  const holidays = await fetchHolidaysForMonth(client, year, month);
   return holidays[day - 1] || false;
 };
-
-export default isHoliday;
