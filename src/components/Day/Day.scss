@@ -36,3 +36,8 @@
 .day:hover {
     background-color: rgba(140, 0, 255, 0.3); /* Slightly darker on hover */
 }
+
+.day.holiday {
+    background-color: rgba(255, 0, 0, 0.2);
+    color: red;
+  }
